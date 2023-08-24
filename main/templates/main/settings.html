@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{%load static%}
+
+
+{%block beginning%}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Авторизация">
+    <meta name="description" content="">
+    <title>регистрация</title>
+    <link rel="stylesheet" href="{% static  'main/css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static  'main/css/register.css' %}" media="screen">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" media="screen">
+    <meta name="generator" content="Nicepage 5.15.1, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+  </head>
+  <body style="background-color:black">
+{%endblock%}
+
+
+{%block content%}
+<section class=" u-black u-clearfix u-section-1">
+    
+        <div class="container" style = "width: 40%; margin-top: 3%;">
+            <!-- Content here -->
+            <form method = 'post'>
+                {%csrf_token%}
+                {%for f in form%}
+                    <div class="form-group">
+                        <label>{{f.label}}</label>
+                        {{f}}
+                        {{f.errors}}
+                    </div><br>
+                {%endfor%}
+                <button type="submit" class="btn bg-success shadow-none">Submit</button>
+            </form>
+
+          </div>
+    </div>
+</section>
+{%endblock%}
